@@ -2,6 +2,9 @@
 import {getDateTime} from "./first.js";
 import {writeValueToDOM, addNewNode} from "./second.js";
 
+// importing all items as one JS obj
+import * as Utils from "./util.js";
+
 addEventListener("load", appmain);
 console.log("loading...");
 
@@ -10,6 +13,7 @@ function appmain(){
 	document.querySelector("#date").textContent = getDateTime();
 	let addNodeButton = document.querySelector("#addNodeBtn");
 	addNodeButton.addEventListener("click",addNode); 
+	document.querySelector("#runUtilsBtn").addEventListener("click", runUtils);
 }
 
 function addNode(){
@@ -19,4 +23,9 @@ function addNode(){
 	writeValueToDOM(usertext);
 	addNewNode();
 	
+}
+
+function runUtils(){
+	Utils.printFilePath();
+	Utils.printSongName();
 }
